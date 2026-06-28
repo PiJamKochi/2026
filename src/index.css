@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  --color-kasavu: #ebf3fc;         /* Ice blue background from image */
+  --color-kasavu-dark: #d5e6f7;    /* Card ice blue */
+  --color-teak: #0b132b;           /* Deep dark blue text */
+  --color-teak-light: #475569;     /* Slate-600 secondary text */
+  --color-brass: #1a80e6;          /* Vibrant blue from image */
+  --color-brass-dark: #1e40af;
+  --color-brass-light: #dbeafe;
+  --color-terracotta: #ff4097;     /* Hot Pink from image */
+  --color-terracotta-dark: #db2777;
+  --color-leaf-green: #16a34a;     /* Vibrant board green */
+  --color-leaf-green-dark: #15803d;
+  
+  --color-grid-line: rgba(26, 128, 230, 0.1);
+  --color-overlay-line: rgba(11, 19, 43, 0.015);
+}
+
+@theme {
+  --color-kasavu: var(--color-kasavu);
+  --color-kasavu-dark: var(--color-kasavu-dark);
+  --color-teak: var(--color-teak);
+  --color-teak-light: var(--color-teak-light);
+  --color-brass: var(--color-brass);
+  --color-brass-dark: var(--color-brass-dark);
+  --color-brass-light: var(--color-brass-light);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-dark: var(--color-terracotta-dark);
+  --color-leaf-green: var(--color-leaf-green);
+  --color-leaf-green-dark: var(--color-leaf-green-dark);
+  
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-serif: "Lora", serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-kasavu);
+    color: var(--color-teak);
+    font-family: var(--font-serif);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom background pattern resembling a clean microchip grid */
+.silicon-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
+}
+
+/* Subtle traditional wooden mesh texture (Charupadi styling) */
+.charupadi-overlay {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-overlay-line),
+    var(--color-overlay-line) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+/* Modern brass/gold accent border glow */
+.brass-glow {
+  box-shadow: 0 0 15px rgba(188, 163, 116, 0.15);
+}
+
+/* Animations for micro-interactions */
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.animate-signal {
+  animation: signal-pulse 3s infinite ease-in-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fade-in 0.25s ease-out forwards;
+}
+
+/* Dark Mode Override Settings */
+html.dark {
+  --color-kasavu: #0b1120;         /* Deep midnight/slate dark background */
+  --color-kasavu-dark: #111a2e;    /* Elevated dark navy card background */
+  --color-teak: #f8fafc;           /* Light text */
+  --color-teak-light: #94a3b8;     /* Slate-400 secondary text */
+  --color-brass: #facc15;          /* Star Yellow accents */
+  --color-brass-dark: #ca8a04;
+  --color-brass-light: #fef08a;
+  --color-terracotta: #ff4097;     /* Hot Pink from image */
+  --color-terracotta-dark: #db2777;
+  --color-leaf-green: #22c55e;
+  --color-leaf-green-dark: #16a34a;
+  
+  --color-grid-line: rgba(56, 189, 248, 0.04);
+  --color-overlay-line: rgba(248, 250, 252, 0.01);
+}
+
+/* Smooth transitions for dark mode toggling */
+body, header, section, footer, nav, button, input, textarea {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom slow spin for theme sun icon */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-kasavu);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brass);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brass-dark);
+}
+
+/* Neo-Brutalism Theme Utility Classes */
+.neo-card {
+  border: 3.5px solid var(--color-teak);
+  background-color: var(--color-kasavu-dark);
+  box-shadow: 6px 6px 0px 0px var(--color-teak);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.neo-btn {
+  border: 3px solid var(--color-teak);
+  box-shadow: 4px 4px 0px 0px var(--color-teak);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--color-teak);
+}
+
