@@ -1,3 +1,4 @@
+[![Deploy to GitHub Pages](https://github.com/PiJamKochi/2026/actions/workflows/deploy.yml/badge.svg)](https://github.com/PiJamKochi/2026/actions/workflows/deploy.yml)
 # Raspberry Pi Jam Kochi 2026
 
 Official event website for **Raspberry Pi Jam Kochi 2026** — a community meetup for Raspberry Pi enthusiasts, makers, educators, and engineers in Kerala.
